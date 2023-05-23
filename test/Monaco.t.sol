@@ -13,6 +13,9 @@ import {PermaShield} from "../src/cars/samples/PermaShield.sol";
 import {Sauce} from "../src/cars/samples/Saucepoint.sol";
 import {MadCar} from "../src/cars/samples/MadCar.sol";
 import {Floor} from "../src/cars/samples/Floor.sol";
+import {KSCAR} from "../src/cars/KSCAR.sol";
+import {banane} from "../src/cars/banane.sol";
+import {TurnOptimizer2} from "../src/cars/TurnOptimizer2.sol";
 
 uint256 constant CAR_LEN = 3;
 uint256 constant ABILITY_LEN = 5;
@@ -48,9 +51,9 @@ contract MonacoTest is Test {
     }
 
     function testGames() public {
-        ICar w1 = new ExampleCar();
-        ICar w2 = new Sauce();
-        ICar w3 = new ExampleCar();
+        ICar w1 = new banane();
+        ICar w2 = new TurnOptimizer2();
+        ICar w3 = new KSCAR();
 
         monaco.register(w1);
         monaco.register(w2);

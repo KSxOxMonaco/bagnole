@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.17;
+import "./../interfaces/ICar.sol";
 
-import "./../../interfaces/ICar.sol";
 
 /*
 Created by the Uniswap team 
@@ -23,12 +23,12 @@ contract TurnOptimizer2 is ICar {
 
         // were about to win this turn, no need to accelerate
         // just shell everyone
-        if (turnsToWin == 0) {
+        /*if (turnsToWin == 0) {
             if (!superShell(monaco, ourCar, 1)) {
                 shell(monaco, ourCar, maxShell(monaco, ourCar.balance));
             }
             return;
-        }
+        }*/
 
         // if we can buy enough acceleration to win right away, do it
         uint256 accelToWin = (1000 - ourCar.y) - ourCar.speed;
@@ -61,7 +61,6 @@ contract TurnOptimizer2 is ICar {
                 superShell(monaco, ourCar, 1);
             } else if (shellCost < maxCost && shellCost < superCost) {
                 shell(monaco, ourCar, 2);
-
             }
         }
 
@@ -178,7 +177,6 @@ contract TurnOptimizer2 is ICar {
             current = (max + min) / 2;
         }
         return min;
-
     }
 
     function maxShell(Monaco monaco, uint256 balance) internal view returns (uint256 amount) {
